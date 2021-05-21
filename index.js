@@ -45,7 +45,6 @@ io.on("connection", socket => {
 });
 
 BinanceTickerStream.on("message", data => {
-    // console.log(data, "\n");
     data = JSON.parse(data);
 
     const eventName = data.stream.match(/[a-z]*usdt/)[0].toUpperCase();
@@ -72,7 +71,6 @@ BinanceTradeStream.on("message", data => {
     } else {
         TradeHistoryList[eventName] = [data.data];
     }
-    console.log(TradeHistoryList)
     io.emit(eventName + "@trade", TradeHistoryList[eventName]);
 });
 
