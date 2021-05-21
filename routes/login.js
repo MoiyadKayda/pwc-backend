@@ -7,7 +7,6 @@ const bcrypt = require("bcrypt");
 router.post("/", async (req, res) => {
     if (Object.keys(req.body).length === 0)
         return res.status(400).send("send all the required details.");
-    // const user = await User.findOne({ email: req.body.email, password: req.body.password });
     const user = await User.findOne({ email: req.body.email });
     if (!user)
         return res.status(400).send("Incorrect email or password");
