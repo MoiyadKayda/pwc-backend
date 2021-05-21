@@ -72,6 +72,7 @@ BinanceTradeStream.on("message", data => {
     } else {
         TradeHistoryList[eventName] = [data.data];
     }
+    console.log(TradeHistoryList)
     io.emit(eventName + "@trade", TradeHistoryList[eventName]);
 });
 
