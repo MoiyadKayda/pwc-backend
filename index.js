@@ -92,6 +92,6 @@ app.get('/', (req, res) => {
   return res.render("PWC app backend");
 })
 
-server.listen(5000, () => {
+server.listen(process.env.PORT || 5000, () => {
     console.log("server listining on 5000 (websocket and express)");
 });
