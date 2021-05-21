@@ -6,7 +6,7 @@ const io = require("socket.io-client");
 router.post("/", async (req, res) => {
     if (Object.keys(req.body).length === 0)
         return res.status(400).send("send all the required details.");
-    const socket = io("http://localhost:5000", { autoConnect: false });
+    const socket = io(`http://localhost:${process.env.PORT}`, { autoConnect: false });
     socket.open();
     let { amount, quantity, side, selected } = req.body;
     const details = await User.findById(res.locals.details._id);
