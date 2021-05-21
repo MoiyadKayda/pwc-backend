@@ -88,6 +88,10 @@ app.use("/placeOrder", placeOrder);
 app.use("/chngDetails", chngDetails);
 
 
+app.get('/', (req, res) => {
+  return res.render("PWC app backend");
+})
+
 server.listen(5000, () => {
     console.log("server listining on 5000 (websocket and express)");
 });
