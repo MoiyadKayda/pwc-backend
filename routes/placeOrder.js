@@ -10,7 +10,7 @@ router.post("/", async (req, res) => {
     socket.open();
     let { amount, quantity, side, selected } = req.body;
     if(amount <= 0 || quantity <= 0){
-      return res.status(400).send("quantity and amount should be more than 0");
+      return res.status(200).send("quantity and amount should be more than 0");
     }
     const details = await User.findById(res.locals.details._id);
     if ((side === "Buy" && details.funds["USDT"] >= amount) || (side === "Sell" && details.funds[selected.slice(0, -4)] >= quantity)) {
