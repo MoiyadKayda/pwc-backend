@@ -1,11 +1,9 @@
 const { verifyToken } = require("../models/Users");
 const auth = (req, res, next) => {
     try {
-        console.log(req.originalUrl);
         if (req.originalUrl === "/createAcc") {
             next();
         } else if (req.originalUrl === "/login") {
-            console.log(req.headers);
             if (req.headers["x-auth-token"] !== "null") {
                 const details = verifyToken(req.headers["x-auth-token"]);
                 res.locals.details = details;
