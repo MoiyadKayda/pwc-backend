@@ -17,7 +17,7 @@ const chngDetails = require("./routes/chngDetails");
 
 
 
-mongoose.connect("mongodb+srv://node-user:Abc123456@sandbox.h8vkg.mongodb.net/pwc?retryWrites=true&w=majority",
+mongoose.connect(process.env.MongoDBURL,
     { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
     .then(() => console.log("Connected to Database"))
 
