@@ -7,7 +7,6 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const auth = require("./middleware/auth");
-const Coins = require("./models/Coins");
 const coinList = require("./routes/coinList");
 const funds = require("./routes/funds");
 const createAcc = require("./routes/createAcc");
